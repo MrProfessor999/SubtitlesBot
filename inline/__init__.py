@@ -49,7 +49,7 @@ def inlinequery(update, context):
             title="Get the File",
             mime_type="application/zip",
             reply_markup=InlineKeyboardMarkup(inline),
-            caption="©️ @BOTS_GARAGE
+            caption="©️ @BOTS_GARAGE/n/n"
         )
     ]
     update.inline_query.answer(results)
