@@ -2,3 +2,8 @@ bs4
 requests
 python-telegram-bot
 lxml
+pyrogram==1.2.9
+
+tgcrypto==1.2.2
+
+requests==2.24.0
