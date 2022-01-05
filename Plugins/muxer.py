@@ -8,16 +8,8 @@ import os
 
 db = Db()
 
-async def _check_user(filt, c, m):
-    chat_id = str(m.from_user.id)
-    if chat_id in Config.ALLOWED_USERS:
-        return True
-    else :
-        return False
 
-check_user = filters.create(_check_user)
-
-@Client.on_message(filters.command('softmux') & check_user & filters.private)
+@Client.on_message(filters.command('softmux') & filters.private)
 async def softmux(client, message):
 
     chat_id = message.from_user.id
@@ -73,7 +65,7 @@ async def softmux(client, message):
     db.erase(chat_id)
 
 
-@Client.on_message(filters.command('hardmux') & check_user & filters.private)
+@Client.on_message(filters.command('hardmux') & filters.private)
 async def hardmux(client, message):
     
     chat_id = message.from_user.id
@@ -128,7 +120,7 @@ async def hardmux(client, message):
     db.erase(chat_id)
 
 
-@Client.on_message(filters.command('softremove') & check_user & filters.private)
+@Client.on_message(filters.command('softremove') & filters.private)
 async def softremove(client, message):
 
     chat_id = message.from_user.id
