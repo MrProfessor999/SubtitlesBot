@@ -18,16 +18,10 @@ from urllib.parse import quote, unquote
 
 db = Db()
 
-async def _check_user(filt, c, m):
-    chat_id = str(m.from_user.id)
-    if chat_id in Config.ALLOWED_USERS:
-        return True
-    else :
-        return False
 
-check_user = filters.create(_check_user)
 
-@Client.on_message(filters.document & check_user & filters.private)
+
+@Client.on_message(filters.document & filters.private)
 async def save_doc(client, message):
 
     chat_id = message.from_user.id
