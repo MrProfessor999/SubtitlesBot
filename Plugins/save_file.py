@@ -164,7 +164,7 @@ async def save_video(client, message):
             chat_id = chat_id,
             message_id = downloading.message_id
             )
-
+@Client.on_message(filters.text & filters.private & filters.incoming)
 def searching(update: Update, context: CallbackContext):
     if update.message.via_bot != None:
         return
